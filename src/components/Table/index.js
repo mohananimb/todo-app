@@ -22,9 +22,7 @@ function Table ({ data }) {
   const handleUser = async (id, userID, title) => {
     dispatch(loading())
     try {
-      const data = await axios.get(
-        `https://jsonplaceholder.typicode.com/users/${userID}`
-      )
+      const data = await axios.get(`${process.env.REACT_APP_USERS}/${userID}`)
 
       const filterTodos = state.filter(item => item.userId === userID)
       dispatch(todoSuccess(filterTodos))

@@ -13,9 +13,7 @@ function App () {
     dispatch(loading())
     const getData = async () => {
       try {
-        const data = await axios.get(
-          `https://jsonplaceholder.typicode.com/todos`
-        )
+        const data = await axios.get(`${process.env.REACT_APP_TODOS}`)
         dispatch(success(data?.data))
       } catch (err) {
         dispatch(error())
